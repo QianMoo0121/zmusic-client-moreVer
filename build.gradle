@@ -55,7 +55,7 @@ subprojects {
 
         from("${rootDir}/LICENSE")
 
-        if (project.name.contains("zmusic-forge-1")) {
+        if (project.name.contains("zmusic-forge-1") || project.name.contains("zmusic-neoforge-1")) {
             manifest {
                 attributes([
                         "Specification-Title"     : "zmusic",
@@ -80,6 +80,9 @@ subprojects {
         filesMatching("META-INF/mods.toml") {
             expand "version": project.version
         }
+
+        // Skip META-INF/neoforge.mods.toml here as it's handled by NeoForge subprojects
+        // with their own detailed property expansion
 
         filesMatching("mcmod.info") {
             expand "version": project.version

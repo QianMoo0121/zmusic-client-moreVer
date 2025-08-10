@@ -1,0 +1,8 @@
+// NeoForge parent build file
+// Synchronizes version numbers across all NeoForge submodules
+
+subprojects {
+    // Sync version with root project
+    version = rootProject.version
+    group = rootProject.group
+}
