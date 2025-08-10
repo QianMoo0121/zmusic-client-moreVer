@@ -42,6 +42,11 @@ subprojects {
 
     jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        
+        if (project.name != "zmusic-core" && project.configurations.findByName('runtimeClasspath')) {
+            dependsOn project(':zmusic-core').tasks.jar
+        }
+        
         from {
             //noinspection GroovyMissingReturnStatement
             configurations.runtimeClasspath.collect {
